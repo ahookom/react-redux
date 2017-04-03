@@ -8,8 +8,11 @@ const Playlist = require('./playlist');
 const Artist = require('./artist');
 const Album = require('./album');
 const Song = require('./song');
+const Genre = require('./genre');
 
 // Form the associations
+
+Song.belongsTo(Genre, {as: 'station'});
 
 Song.belongsTo(Album);
 Album.hasMany(Song);
@@ -29,5 +32,6 @@ module.exports = {
   Album: Album,
   Song: Song,
   Artist: Artist,
-  Playlist: Playlist
+  Playlist: Playlist,
+  Genre: Genre
 };
